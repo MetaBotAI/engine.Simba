@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+linkSource(){
+  ln -srf /app/lazarus /app/Simba/
+}
+
+linkSource
+
+/bin/bash

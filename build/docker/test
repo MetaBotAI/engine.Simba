@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+name=simba-build
+
+docker exec -t $name bash

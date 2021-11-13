@@ -1,0 +1,30 @@
+#!/usr/bin/bash
+
+src=https://github.com/ollydev/Simba.git
+name=simba-build
+
+fast(){
+  export gitopts='--depth 1 --shallow-submodules'
+}
+
+source(){
+  # this works Perfectly!
+  git clone --branch simba1400 --recurse-submodules $gitopts $src
+}
+
+build_env(){
+  docker build -t simba-build .
+}
+
+docker_build(){
+  # mount Source
+  docker run --rm -v `pwd`/Simba:/app/Simba -h $name -it $name
+}
+
+fast
+source
+build_env
+docker_build
+
+# Works!
+works='Sep 19, 2018 parent 3ea7d14 commit f18b4105c3be59ef4d32ba9b1979e6a016432a11'

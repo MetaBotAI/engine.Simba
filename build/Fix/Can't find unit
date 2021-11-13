@@ -1,0 +1,7 @@
+docs: https://wiki.freepascal.org/Unit
+
+# SimbaScript - lptypes
+src: https://github.com/nielsAD/lape
+
+Copying 'lape' submodule to Simba/Modules fixes compile errors!
+for some reason Git submodule pulls it into the wrong place?

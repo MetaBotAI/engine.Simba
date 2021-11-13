@@ -1,0 +1,13 @@
+# Environment Vars
+https://vsupalov.com/docker-arg-env-variable-guide/
+
+"If you set an environment variable in an intermediate container using bash (RUN export VARI=5 && …) it will not persist in the next command. There’s a way to work around that.""
+https://vsupalov.com/set-dynamic-environment-variable-during-docker-image-build/
+
+# Entrypoint
+https://phoenixnap.com/kb/docker-cmd-vs-entrypoint
+https://dev.to/lasatadevi/docker-cmd-vs-entrypoint-34e0
+
+# Link src when Starting
+https://stackoverflow.com/questions/41512237/how-to-execute-a-shell-command-before-the-entrypoint-via-the-dockerfile
+https://serverfault.com/questions/685697/multiple-commands-in-docker-cmd-directive
