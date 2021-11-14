@@ -1,0 +1,27 @@
+#!/usr/bin/bash
+
+dir=~/bot
+
+src=https://github.com/ollydev/Simba.git
+name=simba-build
+branch='simba-1500'
+branch='simba1400'
+
+fast(){
+  export gitopts='--depth 1 --shallow-submodules'
+}
+
+source(){
+  cd $dir
+  # this works Perfectly!
+  git clone --branch $branch --recurse-submodules $gitopts $src
+}
+
+build_env(){
+
+}
+
+
+fast
+source
+build_env
