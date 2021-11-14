@@ -3,3 +3,7 @@ cd ../..
 pwd
 
 git submodule update --remote
+
+git add .
+git commit -am 'update submodule'
+git push
