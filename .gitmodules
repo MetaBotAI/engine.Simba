@@ -1,0 +1,3 @@
+[submodule "lib/my_setup-lazarus-fpcup"]
+	path = lib/my_setup-lazarus-fpcup
+	url = git@github.com:BotEngine/my_setup-lazarus-fpcup.git

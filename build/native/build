@@ -1,11 +1,12 @@
 #!/usr/bin/bash
+# Uses: https://github.com/BotEngine/my_setup-lazarus-fpcup
 
 dir=~/bot
 
 src=https://github.com/ollydev/Simba.git
 name=simba-build
 branch='simba-1500'
-branch='simba1400'
+# branch='simba1400'
 
 fast(){
   export gitopts='--depth 1 --shallow-submodules'
