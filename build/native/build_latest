@@ -4,9 +4,15 @@
 dir=~/bot
 
 src=https://github.com/ollydev/Simba.git
-name=simba-build
-branch='simba-1500'
-# branch='simba1400'
+
+# Branch
+#/ Latest branch is called 'merging'!
+#/ https://github.com/ollydev/Simba/tree/merging
+#/ https://github.com/ollydev/Simba/commits/merging
+
+stable='simba-1500'
+latest='merging'
+branch=$latest
 
 fast(){
   export gitopts='--depth 1 --shallow-submodules'
@@ -18,8 +24,9 @@ source(){
   git clone --branch $branch --recurse-submodules $gitopts $src
 }
 
-build_env(){
-
+build(){
+  cd $dir/Simba
+  ~/bot/fpcup/lazarus/lazbuild Source/Simba.lpi
 }
 
 
