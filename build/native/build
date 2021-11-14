@@ -1,0 +1,56 @@
+#!/usr/bin/bash
+# Repo
+repo=https://github.com/ollydev/Simba.git
+
+# Branch
+#/ Latest branch is called 'merging'!
+#/ https://github.com/ollydev/Simba/tree/merging
+#/ https://github.com/ollydev/Simba/commits/merging
+
+stable='simba-1500'
+latest='merging'
+branch=$latest
+
+dirs(){
+  export dir=~/bot
+  export src=$dir/src
+  export install=$dir/run/Simba
+}
+
+getPascal(){
+  # Uses git Submodule: https://github.com/BotEngine/my_setup-lazarus-fpcup
+  if [ ! -d "$dir/fpcup/lazarus" ]; then
+    cd lib/my_setup-lazarus-fpcup
+    setup-lazarus-fpcup.sh
+  fi
+}
+
+fastClone(){
+  export gitopts='--depth 1 --shallow-submodules'
+}
+
+source(){
+  fastClone
+  cd $src
+  git clone --branch $branch --recurse-submodules $gitopts $repo
+}
+
+build(){
+  cd $src
+  ~/bot/fpcup/lazarus/lazbuild Source/Simba.lpi
+}
+
+install(){
+  mkdir -p $install
+  cp $src/Simba-Linux64 $install
+}
+
+
+main(){
+  dirs
+  getPascal
+  source
+  build
+  install
+}
+main
