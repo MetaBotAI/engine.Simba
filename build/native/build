@@ -12,7 +12,7 @@ latest='merging'
 branch=$latest
 
 dirs(){
-  export dir=~/bot
+  export dir=~/.uni/botengine
   export src=$dir/src
   export install=$dir/run/Simba
 }
