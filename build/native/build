@@ -30,26 +30,37 @@ fastClone(){
 }
 
 source(){
-  fastClone
+  mkdir -p $src
   cd $src
-  git clone --branch $branch --recurse-submodules $gitopts $repo
+  fastClone
+
+  if [ ! -d "$src/Simba" ]; then
+    git clone --branch $branch --recurse-submodules $gitopts $repo
+  fi
 }
 
 build(){
-  cd $src
-  ~/bot/fpcup/lazarus/lazbuild Source/Simba.lpi
+  source
+  cd $src/Simba
+
+  # Targets:
+  # Windows
+  ~/bot/fpcup/lazarus/lazbuild --cpu=x86_64 --os=windows Source/Simba.lpi
+
+  # Linux
+  ~/bot/fpcup/lazarus/lazbuild --cpu=x86_64 --os=linux Source/Simba.lpi
 }
 
 install(){
   mkdir -p $install
-  cp $src/Simba-Linux64 $install
+  cp $src/Simba/Simba-Linux64 $install
 }
 
 
 main(){
   dirs
   getPascal
-  source
+
   build
   install
 }
