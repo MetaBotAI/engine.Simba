@@ -1,0 +1,7 @@
+---
+
+- name: Install Simba dependencies
+  dnf:
+    name:
+      - libcanberra-gtk-module
+  state: latest
